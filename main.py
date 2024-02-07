@@ -2,6 +2,7 @@ import telebot
 from pytube import YouTube, Playlist
 from telebot import types
 import os
+from webserver import keep_alive
 
 telegram_token = os.environ['TELEGRAM_TOKEN']
 bot = telebot.TeleBot(telegram_token)
@@ -122,6 +123,6 @@ def get_direct_download_links(url):
         print(f"An error occurred: {str(e)}")
         return []
 
-
+keep_alive()
 bot.polling()
               
